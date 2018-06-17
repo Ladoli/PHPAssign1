@@ -21,6 +21,7 @@ class Page{
     echo '<title>'.$this->title.'</title>';
     echo "</head>\n";
     echo '<body style="display:inline-block; text-align: center; width: 100%;">'."\n";
+    echo '<h1>Assignment #1 - Group 5</h1>';
   }
 
   function footer() {
