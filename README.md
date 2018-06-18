@@ -8,9 +8,8 @@ File Agent.class.php <- Victor
 
 Organization.class.php <- Karanvir
 
+Assign1_GroupName.php <- Angelo
 
-Assign1_GroupName.php <- Me
-
-Page.class.php <- Me, 
+Page.class.php <- Angelo
 
 Person.class and SelfRanker <- Ignore
