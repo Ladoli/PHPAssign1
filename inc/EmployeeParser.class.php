@@ -1,9 +1,9 @@
 <?php
 
-class SearchParser {
+class EmployeeParser {
 
     //The team tha the Team parser will use
-    private $searchRes= null;
+    private $employeeList= null;
 
     //This function will parse our cars data to an array
 
@@ -30,7 +30,7 @@ class SearchParser {
  }
 
  function getResults() {
-    return $this->$searchRes;
+    return $this->$employeeList;
  }
 
 }

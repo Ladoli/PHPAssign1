@@ -1,8 +1,11 @@
 <?php
 
 require_once('inc/SelfRank.interface.php');
-require_once('inc/Page.class.php');
+require_once('inc/Employee.class.php');
+require_once('inc/EmployeeList.class.php');
+require_once('inc/EmployeeParser.class.php');
 require_once('inc/FileAgent.class.php');
+require_once('inc/Page.class.php');
 
 
 
