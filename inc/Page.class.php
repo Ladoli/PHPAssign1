@@ -8,7 +8,7 @@ class Page{
 
   function  __construct($setTitle)    {
 
-      $this->title = $setTitle;
+    $this->title = $setTitle;
   }
   function header() {
     echo "<!DOCTYPE html>";
@@ -37,9 +37,8 @@ class Page{
     </FORM>';
   }
 
-  function searchList()  {
-
-    echo '<div class="contaner"><div class="row">';
+  function searchList($combinedArray)  {
+    echo '<div class="container"><div class="row">';
     echo '<div class="col-xs-12">';
     echo '<div class="col-xs-2"><a href="?sort=name">First Name</a></div>';
     echo '<div class="col-xs-2"><a href="?sort=name">Last Name</a></div>';
@@ -48,6 +47,18 @@ class Page{
     echo '<div class="col-xs-2"><a href="?sort=name">Job Title</a></div>';
     echo '<div class="col-xs-2"><a href="?sort=name">Department</a></div>';
     echo '</div>';
+    if(!$combinedArray){
+
+    }elseif($combinedArray[0] == -1){
+      echo "No results found, enter another search term";
+    }else {
+      for($combinedArray as $emp){
+        echo '<div class="col-xs-12">';
+        echo '<div class="col-xs-2">'..'/div>';
+        echo '</div>';
+      }
+      echo 'There are '.count($combinedArray).' results';
+    }
     echo '</div></div>';
 
   }

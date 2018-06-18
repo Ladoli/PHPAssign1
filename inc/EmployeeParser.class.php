@@ -3,7 +3,7 @@
 class EmployeeParser {
 
     //The team tha the Team parser will use
-    private $employeeList= null;
+    private $org = null;
 
     //This function will parse our cars data to an array
 
@@ -30,7 +30,7 @@ class EmployeeParser {
  }
 
  function getResults() {
-    return $this->$employeeList;
+    return $this->org;
  }
 
 }
