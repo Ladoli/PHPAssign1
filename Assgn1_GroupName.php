@@ -1,6 +1,7 @@
 <?php
 
 require_once('inc/SelfRank.interface.php');
+require_once('inc/Person.class.php');
 require_once('inc/Employee.class.php');
 require_once('inc/Organization.class.php');
 require_once('inc/EmployeeParser.class.php');
