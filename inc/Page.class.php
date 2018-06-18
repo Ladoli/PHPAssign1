@@ -38,29 +38,28 @@ class Page{
   }
 
   function searchList($combinedArray)  {
-    echo '<div class="container"><div class="row">';
-    echo '<div class="col-xs-12">';
-    echo '<div class="col-xs-2"><a href="?sort=name">First Name</a></div>';
-    echo '<div class="col-xs-2"><a href="?sort=name">Last Name</a></div>';
-    echo '<div class="col-xs-2"><a href="?sort=payroll">Email</a></div>';
-    echo '<div class="col-xs-2"><a href="?sort=wins">Phone</a></div>';
-    echo '<div class="col-xs-2"><a href="?sort=name">Job Title</a></div>';
-    echo '<div class="col-xs-2"><a href="?sort=name">Department</a></div>';
-    echo '</div>';
-    if(!$combinedArray){
+    echo '<br>Searched for "'.$_POST['searchTerm'].'"<br>';
 
-    }elseif($combinedArray[0] == -1){
-      echo "No results found, enter another search term";
+    if(empty($combinedArray)){
+      echo '<br>No results found, enter another search term';
     }else {
-      for($combinedArray as $emp){
-        echo '<div class="col-xs-12">';
-        echo '<div class="col-xs-2">'..'/div>';
-        echo '</div>';
-      }
-      echo 'There are '.count($combinedArray).' results';
+      echo '<div class="container"><div class="row">';
+      echo '<div class="col-xs-12">';
+      echo '<div class="col-xs-2">First Name</div>';
+      echo '<div class="col-xs-2">Last Name</div>';
+      echo '<div class="col-xs-2">Email</div>';
+      echo '<div class="col-xs-2">Phone</div>';
+      echo '<div class="col-xs-2">Job Title</div>';
+      echo '<div class="col-xs-2">Department</div>';
+      echo '</div>';
+        foreach($combinedArray as $emp){
+          echo '<div class="col-xs-12">';
+          echo '<div class="col-xs-2">'."".'/div>';
+          echo '</div>';
+        }
+        echo 'There are '.count($combinedArray).' results';
+      echo '</div></div>';
     }
-    echo '</div></div>';
-
   }
 
 }

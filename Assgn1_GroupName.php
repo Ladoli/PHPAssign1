@@ -19,7 +19,13 @@ $searchRes = [];
 //Check if there if there is a search term/string
 //Check if search string is valid
 //Check if it returns results
-$html->searchList($searchRes);
+
+if(empty($_POST['searchTerm'])){
+
+}
+else{
+  $html->searchList($searchRes);
+}
 
 
 
