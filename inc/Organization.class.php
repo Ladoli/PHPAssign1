@@ -3,7 +3,7 @@
 class EmployeeList{
 
     //The team tha the Team parser will use
-    private $employeeList= [];
+    public $employeeList= [];
 
     //This function will parse our cars data to an array
 

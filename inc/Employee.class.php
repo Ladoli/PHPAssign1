@@ -13,7 +13,13 @@ class Employee implements ISelfRank {
 
 
     //constructor
-
+    function __construct($fN, $lN, $ph, $j, $d) {
+      $this->firstName = $fN;
+      $this->lastName = $lN;
+      $this->phone = $ph;
+      $this->jobTitle = $j;
+      $this->department = $d;
+    }
     //Function to set email address
 
     //The function below should be used to rank the employee based on
