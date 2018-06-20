@@ -25,7 +25,6 @@ class EmployeeParser {
       $org->addEmployee($emp);
       // var_dump($emp);
     }
-      // var_dump($org);
 
       return $org;
   }
@@ -33,7 +32,7 @@ class EmployeeParser {
   // function getResults() {
   //   return $this->org;
   // }
-  
+
   // function createEmail($firstN, $lastN) {
   //   return strtolower($firstN).'.'.strtolower($lastN).'@csis3280.net';
   // }

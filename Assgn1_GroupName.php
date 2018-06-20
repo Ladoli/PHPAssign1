@@ -20,22 +20,22 @@ $searchRes = [];
 //Check if there if there is a search term/
 $fa = new FileAgent($path);
 
-$og = new EmployeeList();
 
 $ep = new EmployeeParser();
 
 //EmployeeParser retruns a parsed EmployeeList
 $og = $ep->parseData($fa->getData());
-var_dump($og); //displays the EmployeeList filled with Employee objects
+ //displays the EmployeeList filled with Employee objects
 
 //Check if search string is valid
 //Check if it returns results
+
 
 if(empty($_POST['searchTerm'])){
 
 }
 else{
-  $html->searchList($searchRes);
+  $html->searchList($og->getEmployeeList());
 }
 
 
