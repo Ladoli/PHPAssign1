@@ -13,8 +13,17 @@ class Employee implements ISelfRank {
 
 
     //constructor
-
-    //Function to set email address
+    function __construct($fN, $lN, $ph, $j, $d) {
+      $this->firstName = $fN;
+      $this->lastName = $lN;
+      $this->phone = $ph;
+      $this->jobTitle = $j;
+      $this->department = $d;
+    }
+    //Function to set email 
+    function createEmail($fN, $lN) {
+       return strtolower($fN).'.'.strtolower($lN).'@csis3280.net';
+    }
 
     //The function below should be used to rank the employee based on
     public function selfRank($term){
@@ -22,6 +31,10 @@ class Employee implements ISelfRank {
       $searchRank = 0;
 
       //Insert logic to rank employees, MUST use reflectionclass
+      $instReflector = new ReflectionClass('Employee');
+      foreach ($instReflector->getProperties() as $property) {
+      return $property->getName().":".$property->getValue($emp);
+    }
 
 
       //Matches ranking uses this priority
