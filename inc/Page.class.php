@@ -41,6 +41,8 @@ class Page{
     echo '<br>Searched for "'.$_POST['searchTerm'].'"<br>';
     if(empty($combinedArray)){
       echo '<br>No results found, enter another search term';
+    }elseif(strlen($_POST['searchTerm']) < 3){
+      echo '<br>Search terms need to be 3 charachers or longer, enter another search term';
     }else {
       echo '<div class="container"><div class="row">';
       echo '<div class="col-xs-12">';

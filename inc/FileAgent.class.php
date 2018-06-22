@@ -2,13 +2,12 @@
 
 class FileAgent {
 
-
   private static $data;
-  
+
   static function read($path)    {
       try{
         $file = fopen($path, "r");
-        
+
         if(!$file){
           throw new Exception("File does not exist");
         }

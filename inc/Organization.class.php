@@ -1,6 +1,6 @@
 <?php
 
-class EmployeeList{
+class Organization{
 
     //The team tha the Team parser will use
     public $employeeList= [];
@@ -19,11 +19,8 @@ class EmployeeList{
     return $this->employeeList;
  }
 
- function searchList(){
-   //Dupcliate the employeeList
-   //Have each employee rank themselves based on search term
-   //Remove employees with rank = 0
-   //Return sorted array of employees based on rank in Descending order.
+ function searchList($searchTerm){
+
  }
 
 }
