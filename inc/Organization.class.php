@@ -3,7 +3,7 @@
 class EmployeeList{
 
     //The team tha the Team parser will use
-    private $employeeList= [];
+    public $employeeList= [];
 
     //This function will parse our cars data to an array
 
@@ -16,14 +16,14 @@ class EmployeeList{
  }
 
  function getEmployeeList() {
-    return $this->$employeeList;
+    return $this->employeeList;
  }
 
  function searchList(){
    //Dupcliate the employeeList
    //Have each employee rank themselves based on search term
    //Remove employees with rank = 0
-   //Return sorted array of employees based on rank in Descending order. 
+   //Return sorted array of employees based on rank in Descending order.
  }
 
 }

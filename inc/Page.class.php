@@ -39,7 +39,6 @@ class Page{
 
   function searchList($combinedArray)  {
     echo '<br>Searched for "'.$_POST['searchTerm'].'"<br>';
-
     if(empty($combinedArray)){
       echo '<br>No results found, enter another search term';
     }else {
@@ -54,7 +53,12 @@ class Page{
       echo '</div>';
         foreach($combinedArray as $emp){
           echo '<div class="col-xs-12">';
-          echo '<div class="col-xs-2">'."".'/div>';
+          echo '<div class="col-xs-2">'.$emp->firstName.'</div>';
+          echo '<div class="col-xs-2">'.$emp->lastName.'</div>';
+          echo '<div class="col-xs-2">'.$emp->email.'</div>';
+          echo '<div class="col-xs-2">'.$emp->phone.'</div>';
+          echo '<div class="col-xs-2">'.$emp->jobTitle.'</div>';
+          echo '<div class="col-xs-2">'.$emp->department.' '.$emp->searchRank.'</div>';
           echo '</div>';
         }
         echo 'There are '.count($combinedArray).' results';
