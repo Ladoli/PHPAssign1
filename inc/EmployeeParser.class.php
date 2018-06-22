@@ -21,6 +21,10 @@ class EmployeeParser {
       }
       // var_dump($columns);
 
+      for($y = 0; $y < count($columns); $y++) {
+        $columns[$y] = trim($columns[$y]);
+      }
+
       $emp = new Employee($columns[0], $columns[1], $columns[4], $columns[5], $columns[6]);
       $org->addEmployee($emp);
       // var_dump($emp);

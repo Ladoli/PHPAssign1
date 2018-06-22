@@ -18,14 +18,16 @@ $html->searchForm();
 
 $searchRes = [];
 //Check if there if there is a search term/
-$fa = new FileAgent($path);
 
+FileAgent::read($path);
 
 $ep = new EmployeeParser();
 
-//EmployeeParser retruns a parsed EmployeeList
-$og = $ep->parseData($fa->getData());
- //displays the EmployeeList filled with Employee objects
+//EmployeeParser returns a parsed EmployeeList
+$og = $ep->parseData(FileAgent::getData());
+
+//displays the EmployeeList filled with Employee objects
+$og->getEmployeeList();
 
 //Check if search string is valid
 //Check if it returns results

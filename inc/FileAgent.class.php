@@ -3,9 +3,9 @@
 class FileAgent {
 
 
-  private $data;
+  private static $data;
   
-  function  __construct($path)    {
+  static function read($path)    {
       try{
         $file = fopen($path, "r");
         
@@ -20,7 +20,7 @@ class FileAgent {
           throw new Exception("No data in file");
         }
 
-        $this->data = $read;
+        self::$data = $read;
 
       }catch(Exception $e){
         echo '<script type="text/javascript">';
@@ -29,8 +29,8 @@ class FileAgent {
       }
   }
 
-  function getData(){
-    return $this->data;
+  static function getData(){
+    return self::$data;
   }
 
 
