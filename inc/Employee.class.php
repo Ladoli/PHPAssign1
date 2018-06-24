@@ -78,7 +78,7 @@ class Employee extends Person implements ISelfRank {
         $rank=5;
       }elseif ($this->partialMatch($firstNameProp,$partialSeachTerms)!== false){
         $rank=4;
-      }elseif ($this->partialMatch($lastNameProp,$partialSeachTerms) !== false){
+      }elseif ($this->partialMatch($lastNameProp,$partialSeachTerms) !== false){                                                                                                                 //This code is by Anglo Villadolid, Jordan Goulet and Victor Sobierajski
         $rank=3;
       }elseif ($this->partialMatch($jobTitle,$partialSeachTerms) !== false){
         $rank=2;
@@ -87,7 +87,6 @@ class Employee extends Person implements ISelfRank {
       }else{
         $rank=0;
       }
-
       // If Matches are identical ranking uses this priority
       // i. Email = 18
       // ii. Phone Number = 17
