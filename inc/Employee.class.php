@@ -11,22 +11,25 @@ class Employee extends Person implements ISelfRank {
 
 
     //constructor
+    //Sets the Employee Attributes based on the passed data and uses said data to set the email field.
     function __construct($fN, $lN, $ph, $j, $d) {
       $this->firstName = $fN;
       $this->lastName = $lN;
       $this->phone = $ph;
       $this->jobTitle = $j;
       $this->department = $d;
-
       $this->createEmail();
+
     }
-    //Function to set email
+
+    //Function to set email based on first and last name and email convention
     function createEmail() {
        $this->email= strtolower($this->firstName).'.'.strtolower($this->lastName).'@csis3280.net';
     }
 
     //The function Returns the position of where the term exists
     //relative to the beginning of the partial search string (independent of offset).
+    //This function honestly doesn't care about the position, just that said position exists. If not, it returns false.
     public function partialMatch($field, $partialSearches){
       foreach($partialSearches as $term){
         if(strpos($field,$term)!==false){
@@ -36,16 +39,33 @@ class Employee extends Person implements ISelfRank {
       return false;
     }
 
+//Our selfRank loops through the properties using reflection. IF the class name matches a property we are looking for, we assign it and search these assigned properties based on rank.
+//We also ranked ALL kinds of searches(...for fun), not just partial ones which is why our search system will be more complicated than other groups.
 
     public function selfRank($searchTerm){
       $rank=0;
       $instReflector= new ReflectionClass('Employee');
-      $emailProp=strtolower($instReflector->getProperties()[0]->getValue($this));
-      $phoneProp = strtolower($instReflector->getProperties()[1]->getValue($this));
-      $firstNameProp = strtolower($instReflector->getProperties()[5]->getValue($this));
-      $lastNameProp = strtolower($instReflector->getProperties()[6]->getValue($this));
-      $jobTitle = strtolower($instReflector->getProperties()[2]->getValue($this));
-      $departmentProp = strtolower($instReflector->getProperties()[3]->getValue($this));
+      $emailProp;
+      $phoneProp;
+      $firstNameProp;
+      $lastNameProp;
+      $jobTitleProp;
+      $departmentProp;
+      foreach($instReflector->getProperties() as $property){
+        if($property->getName() == 'email'){
+          $emailProp = strtolower($property->getValue($this));
+        }elseif($property->getName() == 'phone'){
+          $phoneProp = strtolower($property->getValue($this));
+        }elseif($property->getName() == 'firstName'){
+          $firstNameProp = strtolower($property->getValue($this));
+        }elseif($property->getName() == 'lastName'){
+          $lastNameProp = strtolower($property->getValue($this));
+        }elseif($property->getName() == 'jobTitle'){
+          $jobTitle = strtolower($property->getValue($this));
+        }elseif($property->getName() == 'department'){
+          $departmentProp = strtolower($property->getValue($this));
+        }
+      }
       $searchTerm = strtolower($searchTerm);
       $partialSeachTerms=explode(' ',$searchTerm);
       if(strcmp($emailProp,$searchTerm) === 0){
@@ -78,7 +98,7 @@ class Employee extends Person implements ISelfRank {
         $rank=5;
       }elseif ($this->partialMatch($firstNameProp,$partialSeachTerms)!== false){
         $rank=4;
-      }elseif ($this->partialMatch($lastNameProp,$partialSeachTerms) !== false){                                                                                                                 //This code is by Anglo Villadolid, Jordan Goulet and Victor Sobierajski
+      }elseif ($this->partialMatch($lastNameProp,$partialSeachTerms) !== false){
         $rank=3;
       }elseif ($this->partialMatch($jobTitle,$partialSeachTerms) !== false){
         $rank=2;
@@ -87,32 +107,6 @@ class Employee extends Person implements ISelfRank {
       }else{
         $rank=0;
       }
-      // If Matches are identical ranking uses this priority
-      // i. Email = 18
-      // ii. Phone Number = 17
-      // iii. First Name = 16
-      // iv. Last Name = 15
-      // v. Job Title = 14
-      // vi. Department = 13
-
-      // If Matches have the same charcters in the same positon
-      // i. Email = 12
-      // ii. Phone Number = 11
-      // iii. First Name = 10
-      // iv. Last Name = 9
-      // v. Job Title = 8
-      // vi. Department = 7
-
-      //Partial matches(cointains the same character, Regardless of position)
-      // i. Email = 6
-      // ii. Phone Number = 5
-      // iii. First Name = 4
-      // iv. Last Name = 3
-      // v. Job Title = 2
-      // vi. Department = 1
-
-      //No match = 0
-
       $this->searchRank = $rank;
     }
 

@@ -2,6 +2,8 @@
 
 class FileAgent {
 
+
+//Generic File Agent. Only thing special is how it handles exceptions because exceptions should be pretty.
   private static $data;
 
   static function read($path)    {

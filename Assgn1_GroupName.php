@@ -16,26 +16,19 @@ $path = 'data/employees.csv';
 $html->header();
 $html->searchForm();
 
-$searchRes = [];
-//Check if there if there is a search term/
 
 FileAgent::read($path);
-$parser = new EmployeeParser();
-$org = $parser->parseData(FileAgent::getData());
-
-//displays the EmployeeList filled with Employee objects
+$org = EmployeeParser::parseData(FileAgent::getData());
 
 
-//Check if search string is valid
-//Check if it returns results
 
-
+//Checks if there is a search attempt, if there is, it displays search results of that attempt.
 if(empty($_POST['searchTerm'])){
 
 }
 else{
   $organizationList = $org->searchList($_POST['searchTerm']);
-  $html->searchList($organizationList);
+  $html->searchResults($organizationList);
 }
 
 

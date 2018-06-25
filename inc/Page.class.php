@@ -10,6 +10,8 @@ class Page{
 
     $this->title = $setTitle;
   }
+
+  //Basic header. With prettiness.
   function header() {
     echo "<!DOCTYPE html>";
     echo "<html>\n";
@@ -24,11 +26,13 @@ class Page{
     echo '<h1>Assignment #1 - Group 5</h1>';
   }
 
+  //Basic footer.
   function footer() {
     echo "<BR/><BR/><BR/></body>\n";
     echo "</html>\n";
   }
 
+  //Search form.
   function searchForm() {
     echo '
     <FORM METHOD="POST" ACTION="" enctype="multipart/form-data">
@@ -37,7 +41,10 @@ class Page{
     </FORM>';
   }
 
-  function searchList($combinedArray)  {
+  //This analyzes the information passed about the search results. If no results, it returns a message stating so.
+  //If the searched term is less than 3 characters, it gives a messagie stating so.
+  //Otherwise, it displays the search results.
+  function searchResults($combinedArray)  {
     echo '<br>Searched for "'.$_POST['searchTerm'].'"<br>';
     if(empty($combinedArray)){
       echo '<br>No results found, enter another search term';
